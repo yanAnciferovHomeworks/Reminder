@@ -53,6 +53,7 @@
             this.Calendar.Location = new System.Drawing.Point(13, 47);
             this.Calendar.Name = "Calendar";
             this.Calendar.TabIndex = 0;
+            this.Calendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.Calendar_DateSelected);
             // 
             // EventBox
             // 
@@ -188,6 +189,7 @@
             this.DelButton.TabIndex = 2;
             this.DelButton.Text = "Удалить";
             this.DelButton.UseVisualStyleBackColor = true;
+            this.DelButton.Click += new System.EventHandler(this.DelButton_Click);
             // 
             // EditButton
             // 
@@ -219,6 +221,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Calendar);
             this.Controls.Add(this.EventBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RemindForm";
             this.Text = "Напоминальник";
             this.EventBox.ResumeLayout(false);
