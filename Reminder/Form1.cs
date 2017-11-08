@@ -19,6 +19,7 @@ namespace Reminder
         BindingList<Event> currentEventsDay = new BindingList<Event>();
         bool editMode = false;
         bool maxSize = true;
+        Event ev;
         public RemindForm()
         {
             InitializeComponent();
@@ -36,11 +37,25 @@ namespace Reminder
             DateTime currentTime = DateTime.Now;
             bool isChange = false;
             for (int item = 0; item < DBEvents.Length; item++)
-
             {
-
-                if (DBEvents[item].IsRemind)
+                foreach (var it in DBEvents[item].Reminds)
                 {
+                    if (it.IsOn)
+                    {
+                        DateTime resultDate = DBEvents[item].Date - it.DateSpan;
+                        DateTime resultTime = DBEvents[item].Time - it.DateSpan;
+                        if (resultDate.Day == currentTime.Day
+                            && resultDate.Month == currentTime.Month
+                            && resultDate.Year == currentTime.Year
+                            && resultTime.Second == currentTime.Second
+                            && resultTime.Minute == currentTime.Minute
+                            && resultTime.Second == currentTime.Second)
+                        {
+                            MessageBox.Show(it.Message + DBEvents[item].Name, "Напоминание!");
+                        }
+                    }
+                }
+               
 
                     if (currentTime.Month == DBEvents[item].Date.Month
                     && currentTime.Day == DBEvents[item].Date.Day)
@@ -50,7 +65,7 @@ namespace Reminder
                         && currentTime.Minute == DBEvents[item].Time.Minute
                         && currentTime.Second == DBEvents[item].Time.Second)
                         {
-                            MessageBox.Show(DBEvents[item].Name);
+                            
                             if (DBEvents[item].GetRemind == RemindMode.One)
                             {
 
@@ -75,7 +90,7 @@ namespace Reminder
                         && currentTime.Date.Minute == DBEvents[item].Time.Minute
                         && currentTime.Date.Second == DBEvents[item].Time.Second)
                         {
-                            MessageBox.Show(DBEvents[item].Name);
+                            
                             if (Calendar.SelectionStart.Day == DBEvents[item].Date.Day
                                 && Calendar.SelectionStart.Month == DBEvents[item].Date.Month)
                             {
@@ -89,7 +104,7 @@ namespace Reminder
                             isChange = true;
                         }
                     }
-                }
+                
             }
             if (isChange)
             {
@@ -106,6 +121,7 @@ namespace Reminder
             AddButton.Enabled = false;
             ResizeWinToBig();
             EditButton.Enabled = false;
+            ev = new Event();
         }
 
         private void ResizeWinToBig()
@@ -138,7 +154,7 @@ namespace Reminder
             NameEvent.Text = changedEvent.Name;
             Repeat.SelectedIndex = (int)changedEvent.GetRemind;
             DateEvent.Value = changedEvent.Time;
-            IsRemind.Checked = changedEvent.IsRemind;
+            //IsRemind.Checked = changedEvent.IsRemind;
 
         }
 
@@ -155,7 +171,9 @@ namespace Reminder
         private void OKButton_Click(object sender, EventArgs e)
         {
             if (editMode) { OKEdit(); }
-            else { OKAdd(); }
+            else { 
+                OKAdd(); 
+            }
 
             ResizeWinToSmall();
             AddButton.Enabled = true;
@@ -167,12 +185,12 @@ namespace Reminder
 
         private void OKAdd()
         {
-            Event ev = new Event();
+            
             ev.Name = NameEvent.Text;
             if (ev.Name == "")
                 return;
 
-            ev.IsRemind = IsRemind.Checked;
+           // ev.IsRemind = IsRemind.Checked;
 
             if (Repeat.SelectedIndex != -1)
             {
@@ -220,7 +238,7 @@ namespace Reminder
                 return;
 
             Event changedEvent = (Event)Events.SelectedItem;
-            changedEvent.IsRemind = IsRemind.Checked;
+           // changedEvent.IsRemind = IsRemind.Checked;
             changedEvent.Name = NameEvent.Text;
             if (Repeat.SelectedIndex != -1)
             {
@@ -301,6 +319,7 @@ namespace Reminder
             {
                 fs.Close();
             }
+            
         }
 
         private void DeSerializeDB()
@@ -380,6 +399,26 @@ namespace Reminder
             }
 
             setBoldedDayToCalendar();
+        }
+
+        private void Reminds_Click(object sender, EventArgs e)
+        {
+            
+            Form2 testDialog;
+            if (!editMode)
+            {
+                testDialog = new Form2(ev.Reminds);
+            }
+            else
+            {
+                RemindsTable tableRem = currentEventsDay[Events.SelectedIndex].Reminds;
+                testDialog = new Form2(tableRem);
+            }
+
+
+            testDialog.ShowDialog(this);
+
+            testDialog.Dispose();
         }
     }
 

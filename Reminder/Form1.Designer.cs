@@ -32,7 +32,6 @@
             this.EventBox = new System.Windows.Forms.GroupBox();
             this.CencelButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
-            this.IsRemind = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Repeat = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.DelButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
+            this.Reminds = new System.Windows.Forms.Button();
             this.EventBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,9 +57,9 @@
             // 
             // EventBox
             // 
+            this.EventBox.Controls.Add(this.Reminds);
             this.EventBox.Controls.Add(this.CencelButton);
             this.EventBox.Controls.Add(this.OKButton);
-            this.EventBox.Controls.Add(this.IsRemind);
             this.EventBox.Controls.Add(this.label3);
             this.EventBox.Controls.Add(this.Repeat);
             this.EventBox.Controls.Add(this.label2);
@@ -75,7 +75,7 @@
             // 
             // CencelButton
             // 
-            this.CencelButton.Location = new System.Drawing.Point(225, 132);
+            this.CencelButton.Location = new System.Drawing.Point(253, 132);
             this.CencelButton.Name = "CencelButton";
             this.CencelButton.Size = new System.Drawing.Size(75, 23);
             this.CencelButton.TabIndex = 8;
@@ -85,23 +85,13 @@
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(144, 132);
+            this.OKButton.Location = new System.Drawing.Point(172, 132);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 7;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
-            // 
-            // IsRemind
-            // 
-            this.IsRemind.AutoSize = true;
-            this.IsRemind.Location = new System.Drawing.Point(6, 138);
-            this.IsRemind.Name = "IsRemind";
-            this.IsRemind.Size = new System.Drawing.Size(89, 17);
-            this.IsRemind.TabIndex = 6;
-            this.IsRemind.Text = "Напоминать";
-            this.IsRemind.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -212,6 +202,16 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // Reminds
+            // 
+            this.Reminds.Location = new System.Drawing.Point(10, 132);
+            this.Reminds.Name = "Reminds";
+            this.Reminds.Size = new System.Drawing.Size(89, 23);
+            this.Reminds.TabIndex = 9;
+            this.Reminds.Text = "Напоминания";
+            this.Reminds.UseVisualStyleBackColor = true;
+            this.Reminds.Click += new System.EventHandler(this.Reminds_Click);
+            // 
             // RemindForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,7 +241,6 @@
         private System.Windows.Forms.TextBox NameEvent;
         private System.Windows.Forms.Button CencelButton;
         private System.Windows.Forms.Button OKButton;
-        private System.Windows.Forms.CheckBox IsRemind;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox Repeat;
         private System.Windows.Forms.Label label2;
@@ -250,6 +249,7 @@
         private System.Windows.Forms.Button DelButton;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button Reminds;
     }
 }
 

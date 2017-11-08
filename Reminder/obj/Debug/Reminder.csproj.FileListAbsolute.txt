@@ -17,3 +17,13 @@ C:\Users\Yan\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.
 C:\Users\Yan\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.csproj.CoreCompileInputs.cache
 C:\Users\Yan\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.exe
 C:\Users\Yan\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.pdb
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\bin\Debug\Reminder.exe.config
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\bin\Debug\Reminder.exe
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\bin\Debug\Reminder.pdb
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.csprojResolveAssemblyReference.cache
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.RemindForm.resources
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.Properties.Resources.resources
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.csproj.GenerateResource.Cache
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.exe
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.pdb
+C:\Users\anci_oq88\Desktop\Новая папка\Reminder\Reminder\obj\Debug\Reminder.Form2.resources

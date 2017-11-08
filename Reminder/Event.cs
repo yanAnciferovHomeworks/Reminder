@@ -10,18 +10,33 @@ namespace Reminder
     [Serializable]
     public class Event
     {
+        public Event()
+        {
+            table = new RemindsTable();
+        }
+        RemindsTable table;
+        public RemindsTable Reminds { 
+            get { return table; }
+            set
+            {
+                table = value;
+            }
+        }
+
         public string Name { get; set; }
-
         public DateTime Time { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date
+        {
+            get;
+            set;
+        }
         public bool IsRemind { get; set; }
-
         public RemindMode GetRemind { get; set; }
-
         public override string ToString() 
         {
             return Name;
         }
+
     }
 
     [Serializable]
@@ -73,6 +88,7 @@ namespace Reminder
             {
                 return events[index];
             }
+           
         }
 
         IEnumerator IEnumerable.GetEnumerator()
